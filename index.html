@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MB „Bliekorius“ – stogų dengimas ir skardinimo darbai Plungėje ir Telšiuose</title>
+<meta name="description" content="MB „Bliekorius“ dengia stogus ir lanksto skardą Žemaitijoje – Plungės ir Telšių krašte. Parašykite, ką reikia padaryti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;600&family=Sofia+Sans+Extra+Condensed:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cinkas: #D5DBDD;        /* cinkuota skarda */
+    --cinkas-sviesus: #ECEFF0;
+    --antracitas: #2B3136;    /* RAL 7016 stogas */
+    --antracitas-2: #3C444A;
+    --oksidas: #8C2F22;       /* RAL 3009 */
+    --kreida: #FFFFFF;
+    --zyma: #FFD84A;          /* juodraščio žymeklis */
+
+    --display: "Sofia Sans Extra Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+    --text: "Sofia Sans", "Segoe UI", Roboto, Arial, sans-serif;
+
+    --krastas: clamp(1.25rem, 5vw, 4.5rem);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cinkas-sviesus);
+    color: var(--antracitas);
+    font: 400 1.0625rem/1.6 var(--text);
+  }
+  h1, h2, h3, p, ol, ul, dl, dd { margin: 0; padding: 0; }
+  ol, ul { list-style: none; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--oksidas); outline-offset: 3px; }
+
+  h1, h2 {
+    font-family: var(--display);
+    font-weight: 800;
+    line-height: .92;
+    letter-spacing: -.005em;
+    text-wrap: balance;
+  }
+  h1 { font-size: clamp(3.4rem, 10.5vw, 8.25rem); }
+  h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+
+  /* Vietos, kurių duomenys dar nepatvirtinti */
+  .tikslinti {
+    background: var(--zyma);
+    color: #1d1d1d;
+    padding: .05em .4em;
+    outline: 1.5px dashed #1d1d1d;
+    outline-offset: -1.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .juodrastis {
+    background: var(--zyma);
+    color: #1d1d1d;
+    font-size: .875rem;
+    line-height: 1.4;
+    padding: .55rem var(--krastas);
+  }
+
+  /* Antraštė */
+  .virsus {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem 2rem;
+    padding: 1.25rem var(--krastas);
+  }
+  .vardas {
+    font: 800 1.9rem/1 var(--display);
+    text-decoration: none;
+    letter-spacing: .01em;
+  }
+  .vardas small {
+    font: 400 .9375rem/1 var(--text);
+    margin-left: .5rem;
+  }
+  .virsus nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+  .virsus nav a { text-underline-offset: .25em; text-decoration-thickness: 1px; }
+  .virsus nav a:hover { text-decoration-thickness: 2px; }
+
+  /* Pirmas ekranas */
+  .pradzia {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: end;
+    padding: clamp(1.5rem, 4vw, 3.5rem) var(--krastas) clamp(2.5rem, 6vw, 5rem);
+  }
+  .pradzia p {
+    max-width: 34rem;
+    margin-top: 1.75rem;
+    font-size: 1.1875rem;
+  }
+  .veiksmai {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2rem;
+  }
+  .mygtukas {
+    display: inline-block;
+    background: var(--oksidas);
+    color: var(--kreida);
+    font-weight: 600;
+    text-decoration: none;
+    padding: .95rem 1.5rem;
+    border-radius: 2px;
+    transition: background-color .15s;
+  }
+  .mygtukas:hover { background: #6E2318; }
+
+  /* Lankstinio brėžinys */
+  .brezinys {
+    background: var(--cinkas);
+    border-radius: 2px;
+    padding: clamp(.75rem, 2vw, 1.5rem);
+  }
+  .brezinys svg { display: block; width: 100%; height: auto; }
+  .brezinys figcaption {
+    font-size: .9375rem;
+    margin-top: .75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .25rem 1rem;
+  }
+  .profilis {
+    fill: none;
+    stroke: var(--antracitas);
+    stroke-width: 7;
+    stroke-linejoin: round;
+    stroke-linecap: butt;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: lenkti 2.4s cubic-bezier(.6,.05,.3,1) .3s forwards;
+  }
+  .matmuo line, .matmuo path { stroke: var(--oksidas); stroke-width: 1.5; fill: none; }
+  .matmuo text {
+    font: 600 25px var(--display);
+    fill: var(--oksidas);
+    letter-spacing: .02em;
+  }
+  .matmuo { opacity: 0; animation: rodyti .5s ease-out forwards; }
+  .matmuo:nth-of-type(1) { animation-delay: 1.0s; }
+  .matmuo:nth-of-type(2) { animation-delay: 1.6s; }
+  .matmuo:nth-of-type(3) { animation-delay: 2.2s; }
+  .matmuo:nth-of-type(4) { animation-delay: 2.6s; }
+  @keyframes lenkti { to { stroke-dashoffset: 0; } }
+  @keyframes rodyti { to { opacity: 1; } }
+
+  /* Darbai – kaip sąmatos eilutės */
+  .darbai { padding: clamp(3rem, 8vw, 6.5rem) var(--krastas); background: var(--kreida); }
+  .darbai-galva {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem clamp(1.5rem, 4vw, 4rem);
+    align-items: end;
+    margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  }
+  .darbai-galva p { max-width: 32rem; }
+  .eilutes { border-top: 3px solid var(--antracitas); }
+  .eilutes li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: .25rem clamp(1.5rem, 4vw, 4rem);
+    align-items: baseline;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--cinkas);
+  }
+  .eilutes h3 {
+    font: 600 clamp(1.6rem, 3.4vw, 2.25rem)/1.05 var(--display);
+  }
+  .eilutes h3 .tikslinti { font: 600 .8125rem/1.6 var(--text); vertical-align: middle; margin-left: .35rem; }
+  .eilutes p { max-width: 34rem; }
+
+  /* Eiga – tikra seka, todėl numeruota */
+  .eiga { padding: clamp(3rem, 8vw, 6.5rem) var(--krastas); }
+  .eiga ol {
+    counter-reset: zingsnis;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem clamp(1.25rem, 3vw, 2.5rem);
+    margin-top: clamp(1.5rem, 4vw, 3rem);
+  }
+  .eiga li { counter-increment: zingsnis; border-top: 3px solid var(--antracitas); padding-top: .9rem; }
+  .eiga li::before {
+    content: counter(zingsnis);
+    display: block;
+    font: 800 3.25rem/1 var(--display);
+    color: var(--oksidas);
+    margin-bottom: .5rem;
+  }
+  .eiga h3 { font: 600 1.125rem/1.3 var(--text); margin-bottom: .35rem; }
+  .eiga li p { font-size: 1rem; }
+
+  /* Kontaktai ant valcuoto stogo */
+  .kontaktai {
+    color: var(--kreida);
+    background:
+      repeating-linear-gradient(90deg,
+        rgba(255,255,255,.09) 0 2px,
+        rgba(0,0,0,.28) 2px 7px,
+        transparent 7px clamp(64px, 9vw, 120px)),
+      var(--antracitas);
+    padding: clamp(3.5rem, 9vw, 7.5rem) var(--krastas);
+  }
+  .kontaktai-vidus {
+    background: var(--antracitas);
+    max-width: 58rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border-radius: 2px;
+  }
+  .kontaktai h2 { margin-bottom: 1.25rem; }
+  .kontaktai-vidus > p { max-width: 36rem; }
+  .kontaktai dl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 2.5rem;
+    margin-top: 2.25rem;
+  }
+  .kontaktai dt { font-size: .9375rem; opacity: .75; }
+  .kontaktai dd { font: 600 clamp(1.5rem, 3vw, 2rem)/1.15 var(--display); letter-spacing: .01em; overflow-wrap: anywhere; }
+  .kontaktai dd .tikslinti { font: 600 1rem/1.6 var(--text); white-space: normal; }
+  .kontaktai a:focus-visible { outline-color: var(--zyma); }
+
+  .apacia {
+    padding: 1.5rem var(--krastas);
+    font-size: .9375rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .25rem 2rem;
+  }
+
+  @media (max-width: 860px) {
+    .pradzia, .darbai-galva { grid-template-columns: minmax(0, 1fr); align-items: start; }
+    .eiga ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .eilutes li { grid-template-columns: minmax(0, 1fr); }
+    .kontaktai dl { grid-template-columns: minmax(0, 1fr); }
+    .eiga ol { grid-template-columns: minmax(0, 1fr); }
+    .matmuo text { font-size: 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .profilis { animation: none; stroke-dashoffset: 0; }
+    .matmuo { animation: none; opacity: 1; }
+    .mygtukas { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="virsus">
+  <a class="vardas" href="#pradzia">Bliekorius<small>MB</small></a>
+  <nav aria-label="Puslapio skyriai">
+    <a href="#darbai">Darbai</a>
+    <a href="#eiga">Kaip dirbame</a>
+    <a href="#kontaktai">Kontaktai</a>
+  </nav>
+</header>
+
+<main>
+  <section class="pradzia" id="pradzia">
+    <div>
+      <h1>Dengiame stogus ir lankstome skardą Žemaitijoje</h1>
+      <p>Dirbame Plungėje, Telšiuose, Mažeikiuose, Skuode ir visoje Žemaitijoje: nuo naujo stogo iki vieno lankstinio palangei. Parašykite, ką reikia padaryti, ir sutarsime, kada atvažiuoti pamatuoti.</p>
+      <div class="veiksmai">
+        <a class="mygtukas" href="mailto:mbbliekorius@gmail.com?subject=U%C5%BEklausa%20d%C4%97l%20stogo%20darb%C5%B3">Parašyti el. laišką</a>
+        <span>arba skambinkite <a href="tel:+37061311174">+370 613 11174</a></span>
+      </div>
+    </div>
+
+    <figure class="brezinys">
+      <svg viewBox="0 0 520 400" role="img" aria-labelledby="brez-pav">
+        <title id="brez-pav">Skardos lankstinio profilio brėžinys su matmenimis: 25, 250, 150 ir 20 milimetrų</title>
+        <path class="profilis" pathLength="1" d="M92 172 V128 L352 84 V262 L390 300"/>
+        <g class="matmuo">
+          <line x1="62" y1="128" x2="62" y2="172"/><path d="M54 128h16M54 172h16"/>
+          <text x="46" y="158" text-anchor="end">25</text>
+        </g>
+        <g class="matmuo">
+          <line x1="87" y1="98.500" x2="347" y2="54.500"/><path d="M86 90.500l3 16M346 46.500l3 16"/>
+          <text x="217" y="58" text-anchor="middle" transform="rotate(-9.6 217 58)">250</text>
+        </g>
+        <g class="matmuo">
+          <line x1="384" y1="84" x2="384" y2="262"/><path d="M376 84h16M376 262h16"/>
+          <text x="398" y="181">150</text>
+        </g>
+        <g class="matmuo">
+          <line x1="331" y1="283" x2="369" y2="321"/><path d="M325.500 288.500l11-11M363.500 326.500l11-11"/>
+          <text x="330" y="332" text-anchor="end">20</text>
+          <path d="M352 232 A30 30 0 0 0 373.200 283.200" />
+          <text x="300" y="250" text-anchor="end">135°</text>
+        </g>
+      </svg>
+      <figcaption><span>Lankstinys pagal jūsų matmenis</span><span>Pavyzdinis brėžinys, matmenys mm</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="darbai" id="darbai">
+    <div class="darbai-galva">
+      <h2>Ką darome</h2>
+      <p>Patys gaminame skardos gaminius, prekiaujame jais ir stogų dangomis, todėl medžiagas ir darbą gaunate iš vienų rankų.</p>
+    </div>
+    <ul class="eilutes">
+      <li>
+        <h3>Stogų dengimas</h3>
+        <p>Nauji šlaitiniai ir plokštieji stogai, senų stogų keitimas gyvenamiesiems namams, ūkiniams pastatams, garažams.</p>
+      </li>
+      <li>
+        <h3>Skardinimo darbai</h3>
+        <p>Kraigai, vėjalentės, karnizai, sąlajos ir kitos vietos, kur stogas turi būti sandarus.</p>
+      </li>
+      <li>
+        <h3>Skardos lankstiniai</h3>
+        <p>Palangės, parapetai, nulajos – išlankstome pagal jūsų matmenis arba pamatuojame patys.</p>
+      </li>
+      <li>
+        <h3>Lietaus nuvedimo sistemos</h3>
+        <p>Latakai ir lietvamzdžiai: montavimas, keitimas, remontas.</p>
+      </li>
+      <li>
+        <h3>SANDWICH plokščių montavimas</h3>
+        <p>Daugiasluoksnės plokštės sandėlių, gamybinių ir ūkinių pastatų sienoms bei stogams.</p>
+      </li>
+      <li>
+        <h3>Stogo remontas ir dažymas</h3>
+        <p>Randame, kur prateka, ir sutvarkome tą vietą, o ne visą stogą.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="eiga" id="eiga">
+    <h2>Kaip dirbame</h2>
+    <ol>
+      <li>
+        <h3>Parašote arba paskambinate</h3>
+        <p>Trumpai papasakojate, koks pastatas ir ką reikia padaryti. Nuotrauka labai padeda.</p>
+      </li>
+      <li>
+        <h3>Atvažiuojame pamatuoti</h3>
+        <p>Apžiūrime stogą vietoje ir išmatuojame tai, ko iš nuotraukos nesimato.</p>
+      </li>
+      <li>
+        <h3>Pateikiame sąmatą</h3>
+        <p>Matote medžiagas, darbus ir terminą prieš ką nors užsakydami.</p>
+      </li>
+      <li>
+        <h3>Lankstome ir montuojame</h3>
+        <p>Pagaminame lankstinius, atvežame ir sumontuojame sutartu laiku.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="kontaktai" id="kontaktai">
+    <div class="kontaktai-vidus">
+      <h2>Parašykite, ką reikia padaryti</h2>
+      <p>Užtenka kelių sakinių: kur pastatas, koks stogas, kas negerai arba ką norite pasistatyti. Atsakysime ir sutarsime dėl apžiūros.</p>
+      <dl>
+        <div>
+          <dt>El. paštas</dt>
+          <dd><a href="mailto:mbbliekorius@gmail.com">mbbliekorius@gmail.com</a></dd>
+        </div>
+        <div>
+          <dt>Telefonas</dt>
+          <dd><a href="tel:+37061311174">+370 613 11174</a></dd>
+        </div>
+        <div>
+          <dt>Kur dirbame</dt>
+          <dd>Plungė, Telšiai, Mažeikiai, Skuodas, visa Žemaitija</dd>
+        </div>
+        <div>
+          <dt>Adresas</dt>
+          <dd>Pramonės pr. 4I, LT-90112 Plungė</dd>
+        </div>
+        <div>
+          <dt>Darbo laikas</dt>
+          <dd>I–V 8.00–17.00</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="apacia">
+  <span>MB „Bliekorius“, įmonės kodas 303068116, PVM kodas LT100007772215</span>
+  <span>Stogų dengimas ir skardinimo darbai Žemaitijoje</span>
+</footer>
+
+</body>
+</html>
