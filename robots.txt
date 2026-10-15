@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vasylian.com/bliekorius-concept-v2/sitemap.xml
